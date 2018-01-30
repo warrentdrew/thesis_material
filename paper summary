@@ -1,0 +1,87 @@
+papers summary
+
+1. VDSR (Accurate Image Super-Resolution Using Very Deep Convolutional Networks)
+
+1) context 
+using deep network to increase the receptive field for large image context, argue that depth is helpful
+
+2)convergence 
+residual learning allws training with high learning rate 10**4 times higher than SRCNN
+converges much faster in same learning rate
+residual learning also shows superior performance
+the idea of the residual block is that the input and output are highly correlated
+
+3) multi scale
+single CNN is sufficient for multi scale factor SR
+
+4) padding
+use same padding, (not valid padding as in SRCNN), allows same size of output image with the label image
+
+5) gradient clipping
+clip the gradients to [-theta/gamma, theta/gamma], makes the convergence much faster (4 hours)
+Structure:
+
+6) multi scale model, parameters are shared across all predefined scale factors
+if we use convolutional layer with same padding, the network output will be have the same siye with the input, so
+the three different scales can be trained together
+
+multiple scale boost the performance for large scales
+
+
+7) larger receptive field corresponds to the amount of
+contextual information that can be exploited to infer high-
+frequency components. A large receptive field means the
+network can use more context to predict image details.
+3*3*64 filter size except for the first and last layers
+
+loss is computed between (sum of ILR and output) and SR image 
+
+data preparation:
+1. input patch size is equal to the size of the receptive field
+2. images are divided into sub-images with no overlapping
+3. a mini batch consisit of 64 sub-images from different scales
+
+learning-rate 0.1 (10**-5 for SRCNN)
+
+2-Deep Image Prior
+
+1.contrary to expectations,
+a great deal of image statistics are captured by the struc-
+ture of a convolutional image generator rather than by any
+learned capability
+
+2. randomly-initialized generative network can be used to sample realistic images from a random distribution
+
+3. encoder and decoder hourglass architecture
+
+4. x ∗ = min E(x; x 0 ) + R(x), x* is the target image, x0 is the degraded image
+this method is implemented with Eq. 2
+
+In terms of (1), the prior R(x) defined by (2) is an in-
+dicator function R(x) = 0 for all images that can be pro-
+duced from z by a deep ConvNet of a certain architecture,
+and R(x) = +∞ for all other signals.
+
+5. while indeed
+almost any image can be fitted, the choice of network archi-
+tecture has a major effect how the solution space is searched
+by methods such as gradient descent.
+
+E() is shown in Eq3
+the choice for x0
+
+5.the parametrization offers high impedance to noise and low
+impedance to signal.
+
+The resulting prior
+then corresponds to projection onto (a reduced set of images
+that can be produced from z by ConvNets with parameters
+θ that are not too far from the random initialization θ 0) .
+
+SRResNet
+16 blocks deep
+ResNet (SRResNet) optimized for MSE
+ 
+
+
+
