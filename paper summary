@@ -81,7 +81,27 @@ that can be produced from z by ConvNets with parameters
 SRResNet
 16 blocks deep
 ResNet (SRResNet) optimized for MSE
- 
 
+DRRN deep recursive residual network
+1.VDSR, DRCN, RED30 shows that 'the deeper the better' is still true
+2. use fewer parameters
+ 2×,
+6×, and 14× fewer parameters than VDSR, DRCN, and
+RED30, respectively
+3. global residual learning + local residual learning
+4. recursive learning, proposed in DRCN
+
+DRRN has a recursive block
+consisting of several residual units, and the weight set is
+shared among these residual units.
+
+designing a recursive block with
+a multi-path structure
+
+5. pre-activation
+activation before weight layers
+
+training details:
+mini batch stohastic gradient descent
 
 
