@@ -104,4 +104,19 @@ activation before weight layers
 training details:
 mini batch stohastic gradient descent
 
+291 images: data augmentation, rotate, flip, also scale augmentation
+
+onsidering both the training time and stor-
+age complexities. We set the mini-batch size of SGD to 128,
+momentum parameter to 0.9, and weight decay to 10 −4 .
+Every weight layer has 128 filters of the size 3 × 3.
+
+Thanks to
+the recursive learning strategy, B1U25 can achieve state-of-
+the-art results using far fewer parameters.
+
+6. Information fidelity criterion
+which claims to have
+the highest correlation with perceptual scores for SR evalu-
+ation
 
